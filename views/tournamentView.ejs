@@ -1,0 +1,148 @@
+<!-- views/tournamentView.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tournaments View</title>
+  <link rel="stylesheet" href="/stylesheets/tournamentView.css">
+</head>
+
+<body>
+    <header>
+        <div id="top-of-site">
+        <h1 id="main-header">Tournament Information</h1>
+        <% if (!logged) { %>
+            <ul>
+              <button onclick="window.location.href='/login'">Login</button>
+              <button onclick="window.location.href='/register'">Register</button>
+            </ul>
+            <% } else { %>
+            <ul>
+              <button onclick="window.location.href='/createTournament'">Create Tournament</button>
+              <button onclick="window.location.href='/viewOwnTournaments/'">View your tournaments</button>
+            </ul>
+            <% } %>
+        </div>
+    </header>
+    <% tournament = tournament[0] %>
+    <div id="tournament-container">
+        <div id="container-left">
+            <div id="tournament-name-container">
+                <h1><%= tournament.name %></h1>
+                <h2> Discipline: <%= tournament.discipline %></h2>
+            </div>
+            <div id="loc-date-container">
+                <h2>Date: <%= new Date(tournament.date_time).toLocaleString() %></h2>
+                <h2>Participants: <%= tournament.curr_participants %>/<%= tournament.participants_limit %></h2>
+                <h2>Submission deadline: <%= new Date(tournament.submission_date).toLocaleString() %></h2>
+            </div>
+            <div id="info-container">
+                <h2>Event Creator: <%= tournament.creator %></h2>
+                <h2 id="sponsors-text">Sponsors:</h2>
+                <div id="sponsors">
+                    <% if (tournament.sponsor_logos && tournament.sponsor_logos.length > 0) { %>
+                        <% tournament.sponsor_logos.forEach(image => { %>
+                            <img src="<%= image %>" alt="">
+                        <% }) %>
+                    <% } else { %>
+                        <p>No sponsors available</p>
+                    <% } %>
+                </div>
+            </div>
+            <% if (logged) { %>
+                <% if (user.id == tournament.creator_id) { %>
+                    <form method="post" action="/edit-tournament-start/<%= tournament.id %>">
+                        <button type="submit">Edit Tournament</button>
+                    </form>
+                <% } else if (avaibility && logged) { %>
+                    <form method="post" action="/participate-start/<%= user.id %>/<%= tournament.id %>">
+                        <button type="submit">Participate</button>
+                    </form>
+                <% } else { %>
+                    <div id="not-available">Event no longer available!</div>
+                <% } %>    
+            <% } else { %>
+                <div id="not-available">You must be logged in to sign up!</div>
+            <% } %>
+        </div>
+        <div id="container-right">
+            <% if (tournament.map_embedding && tournament.map_embedding.length > 0) { %>
+                <iframe src="https://www.google.com/maps/embed?pb=!<%= tournament.map_embedding %>" frameborder="0" allowfullscreen></iframe>  
+            <% } else { %>
+                <p>No map available</p>
+            <% } %>
+        </div>
+    </div>
+    <% function groupMatchesByRound(matches) {
+
+        const groupedMatches = matches.reduce((accumulator, match) => {
+            const round = match.round;
+            if (!accumulator[round]) {
+                accumulator[round] = [];
+            }
+            accumulator[round].push(match);
+            return accumulator;
+        }, {});
+    
+        return Object.values(groupedMatches);
+    } %>
+    <% function selectUncompletedMatchesByUserId(matches, userId) {
+        return matches.filter(match => {
+            const isUserInMatch = match.user_id1 === userId || match.user_id2 === userId;
+            const isNotCompleted = !match.complete;
+    
+            if (isUserInMatch && isNotCompleted) {
+                if (match.user_id1 === userId && match.winner1 === null) {
+                    return true;
+                }
+                if (match.user_id2 === userId && match.winner2 === null) {
+                    return true;
+                }
+            }
+    
+            return false;
+        });
+    } %>
+    <% if (tournament.seeded) { %>
+        <div id="results-submission-container">
+            <% if (logged) { 
+                matching = selectUncompletedMatchesByUserId(matches, user.id); %>
+                <% if (matching.length !== 0) { %>
+                    <form method="post" action="/submit-results-start/<%= user.id %>/<%= matching[0].id %>">
+                        <button type="submit">Submit results</button>
+                    </form>
+                <% } %>
+             <% } %>
+        </div>
+        <div id="ladder-container">
+            <% const groupedMatches = groupMatchesByRound(matches); %>
+            <% groupedMatches.forEach((roundMatches, index) => { %>
+            <div id="round-container">
+                <h2>Round <%= index + 1 %></h2>
+                <% roundMatches.forEach(match => { %>
+                    <div id="single-match-cell">
+                        <div id="names-cell">
+                            <h2 id="ladder-user-info"><%= match.user_ranking1 %>. <%= match.user1_name %> <%= match.user1_surname %></h2>
+                            <% if (match.user_id2 !== null) { %>
+                                <h2 id="ladder-user-info"><%= match.user_ranking2 %>. <%= match.user2_name %> <%= match.user2_surname %></h2>
+                            <% } %>  
+                        </div>
+                        <div id="names-cell">
+                            <h2>Winner</h2>
+                            <% if (match.complete) { %>
+                                <h2 id="ladder-user-info"><%= match.winner_name %> <%= match.winner_surname %></h2>
+                            <% } else { %>
+                                <h2>Unavailable</h2>
+                            <% } %>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+            <% }) %>
+        </div>
+    <% } %>
+</body>
+</html>

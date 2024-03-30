@@ -1,0 +1,75 @@
+:root {
+    color-scheme: dark;
+}
+
+body {
+    background-color: #121212;
+    font-family: Arial, sans-serif; /* Set a fallback font */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+}
+
+#header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 10px; /* Add some padding */
+}
+
+h1 {
+    color: #DADADA;
+    margin: 20px auto; /* Center horizontally with some margin */
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #1c1c1c;
+    width: fit-content;
+    margin: 10px auto; /* Center horizontally with some margin */
+    padding: 30px;
+    border-radius: 15px;
+    align-self: center;
+}
+
+#container-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px auto; /* Center horizontally with some margin */
+    max-width: 600px; /* Adjusted maximum width */
+    justify-content: space-between;
+}
+
+h2 {
+    color: #DADADA;
+}
+
+input {
+    height: 30px;
+    width: 300px;
+    background-color: #242424;
+    margin: 10px;
+    padding: 5px; /* Add some padding */
+    border-radius: 5px; /* Add some border radius */
+    border: none; /* Remove default border */
+}
+
+#submit {
+    width: 200px;
+    height: 40px;
+    margin: 10px auto; /* Center horizontally with some margin */
+    background-color: #242424;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    color: #DADADA;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}

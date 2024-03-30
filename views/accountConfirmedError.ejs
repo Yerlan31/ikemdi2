@@ -1,0 +1,27 @@
+<!-- views/accountConfirmedError.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/stylesheets/accountConfirmedError.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Verification Error</title>
+</head>
+<body>
+    <div id="container-box">
+        <h1>Account Verification Error</h1>
+        <h2>Something went wrong. Perhaps the activation link expired or is incorrect.</h2>
+    </div>
+    <form id="registration-form" method="post" action="/registration_again" >
+        <h2>Send the email again</h2>
+        <div id="container-box">
+            <h2 for="email">E-mail:</h2>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div id="container-box">
+            <button id="submit" type="submit">Send Email Again</button>
+        </div>
+    </form>
+</body>
+</html>

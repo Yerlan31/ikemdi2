@@ -1,0 +1,63 @@
+<!-- views/createTournament.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/stylesheets/createTournament.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Creation</title>
+</head>
+<body>
+    <div id="header-container">
+        <h1>Create a Tournament</h1>
+    </div>
+    <form id="tournament-form" method="post" action="/create-tournament-start" >
+        <div id="container-box">
+            <h2 for="name">Tournament Name:</h2>
+            <input type="text" id="name" name="name" required>    
+        </div>
+        <div id="container-box">
+            <h2 for="discipline">Tournament Discipline:</h2>
+            <input type="text" id="discipline" name="discipline" required>    
+        </div>
+        <div id="container-box">
+            <h2 for="time">Date and Time:</h2>
+            <input type="datetime-local" id="time" name="time" required oninput="updateMaxDate()" min="<%= currDate.toISOString().slice(0, 16) %>">
+        </div>
+        <div id="container-box">
+            <h2 for="submission">Max submission date:</h2>
+            <input type="datetime-local" id="submission" name="submission" required min="<%= currDate.toISOString().slice(0, 16) %>">
+        </div>
+        <script>
+            function updateMaxDate() {
+                var dateTimeInput = document.getElementById('time');
+                var maxDateInput = document.getElementById('submission');
+                maxDateInput.max = dateTimeInput.value;
+            }
+        </script>
+        <div id="container-box">
+            <h2 for="location">Location:</h2>
+            <input type="text" id="location" name="location" required>
+        </div>
+        <div id="container-box">
+            <h2 for="embedding">Google Maps embedding:</h2>
+            <input type="text" id="embedding" name="embedding">
+        </div>
+        <div id="container-box">
+            <h2 for="limitP">Participants Limit:</h2>
+            <input type="number" id="limitP" name="limitP" required min="1">
+        </div>
+        <input type="hidden" id="currP" name="currP" value="0">  
+        <div id="container-box">
+            <h2 for="sponsors">Sponsors Logo Image Links:</h2>
+            <input type="text" id="sponsors" name="sponsors" placeholder="Enter image links (separated by spaces)">
+        </div>
+        <input type="hidden" id="creator" name="creator" value="<%= user.name + ' ' + user.surname %>">
+        <input type="hidden" id="curr" name="idC" value="<%= user.id %>">
+        <div id="container-box">
+            <button id="submit" type="submit">Create Tournament</button>
+        </div>
+    </form>
+</body>
+</html>

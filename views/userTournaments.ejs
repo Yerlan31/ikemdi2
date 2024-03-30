@@ -1,0 +1,63 @@
+<!-- views/userTournaments.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Tournaments</title>
+  <link rel="stylesheet" href="/stylesheets/userTournaments.css">
+</head>
+
+<body>
+  <header>
+    <div id="top-of-site">
+      <h1 id="main-header">Your Tournaments</h1>
+      <ul>
+        <button onclick="window.location.href='/'">Main Page</button>
+      </ul>
+    </div>
+  </header>
+  <% const itemsPerPage=10; const startIndex=(page - 1) * itemsPerPage; const endIndex=page * itemsPerPage; const
+    slicedTournaments=tournaments.slice(startIndex, endIndex); %>
+  <% slicedTournaments.forEach(item=> { %>
+    <div id="tournament-container">
+      <div id="tournament-name-container">
+        <h2><%= item.name %></h2>
+      </div>
+      <div id="loc-date-container">
+        <h2>Date: <%= new Date(item.date_time).toLocaleString() %></h2>
+        <h2>Location: <%= item.location %></h2>
+        <h2>Participants: <%= item.curr_participants %>/<%= item.participants_limit %></h2>
+      </div>
+      <div id="info-container">
+        <h2>Event Creator: <%= item.creator %></h2>
+        <h2 id="sponsors-text">Sponsors:</h2>
+        <div id="sponsors">
+          <% if (item.sponsor_logos && item.sponsor_logos.length > 0) { %>
+            <% item.sponsor_logos.forEach(image => { %>
+              <img src="<%= image %>" alt="">
+            <% }) %>
+          <% } else { %>
+            <p>No sponsors available</p>
+          <% } %>
+        </div>
+      </div>
+      <form method="post" action="/view-tournament/<%= item.id %>" >
+        <button type="submit">See more info</button>
+      </form>
+    </div>
+  <% }) %>
+
+  <div id="page-select">
+    <% if (page> 1) { %>
+      <button onclick="window.location.href='?page=<%= page - 1 %>'">Previous</button>
+    <% } %>
+    <div id="page-number">Page <%= page %></div>
+    <% if (tournaments.length>endIndex) { %>
+      <button onclick="window.location.href='?page=<%= parseInt(page) + 1 %>'">Next</button>
+    <% } %>
+  </div>
+</body>
+</html>

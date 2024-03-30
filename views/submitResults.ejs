@@ -1,0 +1,28 @@
+<!-- views/submitResults.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/stylesheets/submitResults.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Results</title>
+</head>
+<body>
+    <div id="header-container">
+        <h1>Submit Results</h1>
+    </div>
+    <div id="choice">
+        <form id="registration-form" method="post" action="/submit-results-process-win">
+            <div id="container-box">
+                <button id="submit" type="submit">I won</button>
+            </div>
+        </form>
+        <form id="registration-form" method="post" action="/submit-results-process-lost">
+            <div id="container-box">
+                <button id="submit" type="submit">I lost</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

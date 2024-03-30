@@ -1,0 +1,75 @@
+:root {
+    color-scheme: dark;
+}
+
+body {
+    background-color: #121212;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    height: 100vh; /* Ensure full viewport height */
+    margin: 0;
+    padding: 0;
+}
+
+#header-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px; /* Add some space below the header */
+}
+
+h1 {
+    color: #DADADA;
+    margin: 0 auto; /* Center horizontally */
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #1c1c1c;
+    width: fit-content;
+    padding: 30px;
+    border-radius: 15px;
+    margin: 10px auto; /* Center horizontally with some margin */
+}
+
+#container-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 600px;
+    margin: 0 auto; /* Center horizontally */
+}
+
+h2 {
+    color: #DADADA;
+}
+
+input {
+    height: 30px;
+    width: 300px;
+    background-color: #242424;
+    margin: 10px; /* Add some margin */
+    padding: 5px; /* Adjust padding */
+    border: none; /* Remove default border */
+    border-radius: 5px;
+    color: #DADADA;
+}
+
+#submit {
+    width: 200px;
+    height: 40px;
+    background-color: #242424;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    color: #DADADA;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    margin: 10px auto; /* Center horizontally with some margin */
+}

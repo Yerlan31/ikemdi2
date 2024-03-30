@@ -1,0 +1,33 @@
+<!-- views/login.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <div id="header-container">
+        <h1>Login</h1>
+    </div>
+    <form id="login-form" method="post" action="/login-start" >
+        <div id="container-box">
+            <h2 for="email">E-mail:</h2>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div id="container-box">
+            <h2 for="password">Password:</h2>
+            <input type="password" id="password" name="password" required>
+        </div>
+        
+        <div id="container-box">
+            <button id="submit" type="submit">Log in</button>
+        </div>
+    </form>
+    <form id='login-form' method="post" action="/forgot-password-start">
+        <button id="submit" type="submit">Forgot my password</button>
+    </form>
+</body>
+</html>

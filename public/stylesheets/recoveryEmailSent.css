@@ -1,0 +1,32 @@
+:root {
+    color-scheme: dark;
+}
+
+body {
+    background-color: #121212;
+    font-family: Arial, sans-serif; /* Set a fallback font */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+}
+
+h1 {
+    color: #DADADA;
+    margin: 20px auto; /* Center horizontally with some margin */
+}
+
+#container-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto; /* Center horizontally with some margin */
+    max-width: 600px; /* Adjusted maximum width */
+    padding: 0 20px; /* Added padding */
+}
+
+h2 {
+    color: #DADADA;
+    margin: 10px 0; /* Adjust margin */
+}

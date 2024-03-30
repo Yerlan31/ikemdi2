@@ -1,0 +1,34 @@
+:root {
+    color-scheme: dark;
+}
+
+body {
+    background-color: #121212;
+    font-family: Arial, sans-serif; /* Set a fallback font */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    min-height: 100vh; /* Ensure full viewport height */
+}
+
+h1, h2 {
+    color: #DADADA;
+    text-align: center;
+    margin: 10px auto; /* Center horizontally with some margin */
+}
+
+#container-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px; /* Adjusted maximum width */
+    margin: 0 auto; /* Center horizontally */
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 20px; /* Add space below h2 */
+}
+

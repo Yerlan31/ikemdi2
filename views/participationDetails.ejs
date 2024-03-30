@@ -1,0 +1,32 @@
+<!-- views/participationDetails.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/stylesheets/participationDetails.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provide Details</title>
+</head>
+<body>
+    <div id="header-container">
+        <h1>Participation Form</h1>
+    </div>
+    <form id="login-form" method="post" action="/participation-details-provided" >
+        <input type="hidden" id="email" name="userId" required value="<%= userId %>">
+        <input type="hidden" id="email" name="tournamentId" required value="<%= tournamentId %>">
+        <h2>Please provide the details below to be able to join this contest.</h2>
+        <div id="container-box">
+            <h2 for="email">License Number:</h2>
+            <input type="number" id="email" name="license" required>
+        </div>
+        <div id="container-box">
+            <h2 for="password">Current Ranking:</h2>
+            <input type="number" id="password" name="ranking" required>
+        </div>
+        <div id="container-box">
+            <button id="submit" type="submit">Submit</button>
+        </div>
+    </form>
+</body>
+</html>

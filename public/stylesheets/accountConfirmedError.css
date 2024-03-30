@@ -1,0 +1,61 @@
+:root {
+    color-scheme: dark;
+}
+
+body {
+    background-color: #121212;
+    font-family: Arial, sans-serif; /* Set a fallback font */
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    color: #DADADA;
+    text-align: center;
+}
+
+#container-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px; /* Adjusted maximum width */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#registration-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #1c1c1c;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+button {
+    margin: 10px auto; /* Center the button horizontally */
+    width: 200px;
+    height: 40px;
+    background-color: #242424;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    color: #DADADA;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+input {
+    margin: 10px auto; /* Center the input horizontally */
+    width: 100%; /* Make inputs fill the available width */
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #DADADA;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}

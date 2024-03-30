@@ -1,0 +1,74 @@
+<!-- views/editTournament.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/stylesheets/editTournament.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editing Tournament</title>
+</head>
+<body>
+    <div id="header-container">
+        <h1>Edit your tournament</h1>
+    </div>
+    <form id="tournament-form" method="post" action="/edit-tournament-process-start" >
+        <input type="hidden" id="tourID" name="tourID" value="<%= tournament[0].id %>">  
+        <div id="container-box">
+            <h2 for="name">Tournament Name:</h2>
+            <input type="text" id="name" name="name" required value="<%= tournament[0].name %>">    
+        </div>
+        <div id="container-box">
+            <h2 for="discipline">Tournament Discipline:</h2>
+            <input type="text" id="discipline" name="discipline" required value="<%= tournament[0].discipline %>">    
+        </div>
+        <div id="container-box">
+            <h2 for="time">Date and Time:</h2>
+            <input type="datetime-local" id="time" name="time" required oninput="updateMaxDate()" min="<%= currDate.toISOString().slice(0, 16) %>" value="<%= (new Date(tournament[0].date_time)).toISOString().slice(0, 16) %>">
+        </div>
+        <div id="container-box">
+            <h2 for="submission">Max submission date:</h2>
+            <input type="datetime-local" id="submission" name="submission" required min="<%= currDate.toISOString().slice(0, 16) %>" value="<%= (new Date(tournament[0].submission_date)).toISOString().slice(0, 16) %>">
+        </div>
+        <script>
+            function updateMaxDate() {
+                var dateTimeInput = document.getElementById('time');
+                var maxDateInput = document.getElementById('submission');
+                maxDateInput.max = dateTimeInput.value;
+            }
+            updateMaxDate();
+        </script>        
+        <div id="container-box">
+            <h2 for="location">Location:</h2>
+            <input type="text" id="location" name="location" required value="<%= tournament[0].location %>">
+        </div>
+        <div id="container-box">
+            <h2 for="embedding">Google Maps embedding:</h2>
+            <input type="text" id="embedding" name="embedding" value="<%= tournament[0].map_embedding %>">
+        </div>
+        <div id="container-box">
+            <h2 for="limitP">Participants Limit:</h2>
+            <input type="number" id="limitP" name="limitP" required value="<%= tournament[0].participants_limit %>">
+        </div>
+        <input type="hidden" id="currP" name="currP" value="<%= tournament[0].curr_participants %>">  
+        <script>
+            function updateMinParticipants() {
+                var limitP = document.getElementById('limitP');
+                var currP = document.getElementById('currP');
+                limitP.min = currP.value;
+            }
+            updateMinParticipants();
+        </script>
+        <div id="container-box">
+            <h2 for="sponsors">Sponsors Logo Image Links:</h2>
+            <input type="text" id="sponsors" name="sponsors" value="<%= tournament[0].sponsor_logos?.join(' ') ?? '' %>">
+        </div>
+        <input type="hidden" id="creator" name="creator" value="<%= user.name + ' ' + user.surname %>">
+        <input type="hidden" id="curr" name="idC" value="<%= user.id %>">
+        <input type="hidden" id="curr" name="seeded" value="<%= tournament[0].seeded %>">
+        <div id="container-box">
+            <button id="submit" type="submit">Edit Tournament</button>
+        </div>
+    </form>
+</body>
+</html>

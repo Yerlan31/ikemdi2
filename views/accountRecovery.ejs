@@ -1,0 +1,27 @@
+<!-- views/accountRecovery.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/stylesheets/accountRecovery.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Recovery</title>
+</head>
+<body>
+    <div id="header-container">
+        <h1>Account Recovery</h1>
+    </div>
+    <form id="login-form" method="post" action="/password-change-start" >
+        <h2>Please enter a new password below for your account.</h2>
+        <input type="hidden" id="token" name="token" value="<%= token %>">
+        <div id="container-box">
+            <h2 for="password">Password:</h2>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div id="container-box">
+            <button id="submit" type="submit">Change Password</button>
+        </div>
+    </form>
+</body>
+</html>

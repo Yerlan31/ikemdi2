@@ -1,0 +1,41 @@
+/* Set color scheme to dark */
+:root {
+    color-scheme: dark;
+}
+
+/* General styling for the body */
+body {
+    background-color: #121212; /* Dark background */
+    font-family: Arial, sans-serif; /* Font choice */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+}
+
+/* Heading 1 styling */
+h1 {
+    color: #DADADA; /* Light gray color for headings */
+    text-align: center; /* Center align */
+}
+
+/* Container box styling */
+#container-box {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center; /* Center items horizontally */
+    max-width: 800px; /* Set maximum width */
+    margin: 0 auto; /* Center container horizontally */
+    padding: 20px; /* Add some padding */
+}
+
+/* Heading 2 styling */
+h2 {
+    color: #DADADA; /* Light gray color for headings */
+    margin-top: 20px; /* Add spacing at the top */
+}
+
+/* Additional styling inspired by Kazakhstan */
+/* Add Kazakh ornamentation or motifs */
+/* Consider using images or icons representing Kazakhstan's landmarks or cultural symbols */
+/* Incorporate shades of blue representing Kazakhstan's flag or nature */
+/* Add hover effects or animations inspired by Kazakh culture */
+/* Include responsive design principles for better mobile experience */
