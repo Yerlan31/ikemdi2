@@ -1,0 +1,21 @@
+name: IkemdiFrontBuild
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: linuxpskz
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '21.x'
+      - name: Installing dependencies 
+        run: npm ci # clean install
+      - name: Building the app
+        env:
+          CI: ""
+        run: ls -la #npm --prefix ./client run build --if-present
+
