@@ -34,15 +34,20 @@ To run datasetCreator.js, use the command:
 
 Note that the entire website operates solely on your local machine, so any emails sent by the system (e.g., for account confirmation) will be available in the terminal as a link to the local email website.
 
-If you do not wish to install all these requirements, you can watch a demo presented below:
+Systemd service: 
+'''
+[Unit]
+Description=Ikemdi Judo
+After=network-online.target
 
-https://github.com/Mickeyo0o/TournamentsWebsite/assets/119634889/efdeb34d-90de-408b-9a91-b53702a37a6c
+[Service]
+Restart=on-failure
+WorkingDirectory=/home/ubuntu/actions-runner/_work/ikemdi2/ikemdi2
+ExecStart=/usr/bin/node /home/ubuntu/actions-runner/_work/ikemdi2/ikemdi2/app.js
+
+[Install]
+WantedBy=multi-user.target
+'''
 
 
-## Note
 
-This project was completed as part of the Internet Application course.
-
-## Creator
-
-Mikołaj Marmurowicz (Mickeyo0o)
