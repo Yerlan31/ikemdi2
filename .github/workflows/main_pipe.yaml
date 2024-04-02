@@ -17,5 +17,5 @@ jobs:
       - name: Building the app
         env:
           CI: ""
-        run: systemctl restart ikemdi.service 
+        run: echo ${{ secrets.USERPWD }} | systemctl restart ikemdi.service 
 
