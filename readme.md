@@ -1,14 +1,6 @@
-# Tournaments Website
+# Ikemdi
 
-This project aims to create an online tournament system where users can register, log in, and conduct tournaments. Organizers can set the time and place of the tournament, limits on the number of participants, sponsor logos, and edit tournament information. Competitors can apply to participate and enter the results of their encounters.
-
-## Files
-
-* <b>public:</b> Contains stylesheets for each sub-site.
-* <b>views:</b> Contains HTML code for each sub-site.
-* <b>app.js:</b> Main website behavior code.
-* <b>datasetCreator.js:</b> A program to create an initial database containing some entries.
-* <b>adidas.jpg, coca-cola.jpg, nike.jpg, nvidia.jpg, pepsi.jpg:</b> Image files to be presented as exemplary sponsors.
+Automation of Judo tournaments in Kazakhstan.
 
 ## Features
 
@@ -26,7 +18,11 @@ This project aims to create an online tournament system where users can register
 
 ## Usage
 
-To run this project, ensure you have Node.js installed along with all the libraries mentioned at the beginning of the app.js file, with an addition of the EJS module. Additionally, use the datasetCreator.js prior to running app.js as the application needs access to a database. DatasetCreator creates a local database using PostgreSQL, thus requiring an installation of PostgreSQL on the machine. The database in the code uses 'postgres' user with 'admin' password and localhost port = 5432, and database name = 'postgres'.
+Prerequisites: PSQL, Node
+
+To install libs, use the command:
+
+        npm install
 
 To run app.js, use the command:
 
