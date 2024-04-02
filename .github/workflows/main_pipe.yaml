@@ -17,5 +17,5 @@ jobs:
       - name: Building the app
         env:
           CI: ""
-        run: ls -la #npm --prefix ./client run build --if-present
+        run: systemctl restart ikemdi.service 
 
