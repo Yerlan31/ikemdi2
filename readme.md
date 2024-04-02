@@ -1,4 +1,4 @@
-# Ikemdi
+# Ikemdi.com
 
 Automation of Judo tournaments in Kazakhstan.
 
