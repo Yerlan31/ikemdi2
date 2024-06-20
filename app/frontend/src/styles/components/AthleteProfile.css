@@ -1,0 +1,104 @@
+/* AthleteProfile.css */
+.athlete-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    max-width: 600px; /* Adjust the max-width as needed */
+    margin: 0 auto; /* Center the card horizontally */
+    word-wrap: break-word; /* Ensure long words break to the next line */
+}
+
+.athlete-profile img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.athlete-profile h2 {
+    font-size: 2em;
+    margin: 10px 0;
+    color: #333;
+    max-width: 100%; /* Ensure the text does not overflow */
+}
+
+.athlete-profile p {
+    font-size: 1em;
+    color: #666;
+    margin: 5px 0;
+    max-width: 100%; /* Ensure the text does not overflow */
+    word-wrap: break-word; /* Ensure long words break to the next line */
+    overflow-wrap: break-word; /* Ensure long words break to the next line */
+}
+
+.athlete-profile p:nth-child(even) {
+    color: #444; /* Slightly darker color for better readability */
+}
+
+.edit-button:hover {
+    background: #2fc18c;
+}
+
+.edit-button {
+    background: #32a791;
+    border: 1px solid #32a791;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 16px;
+    height: 40px;
+    margin: 20px 0;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%; /* Используем 100% ширины для кнопки */
+    max-width: 519px; /* Максимальная ширина кнопки для удобства на больших экранах */
+}
+/* Media Queries */
+@media (max-width: 768px) {
+    .athlete-profile {
+        padding: 15px;
+    }
+
+    .athlete-profile img {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 15px;
+    }
+
+    .athlete-profile h2 {
+        font-size: 1.5em;
+    }
+
+    .athlete-profile p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .athlete-profile {
+        padding: 10px;
+    }
+
+    .athlete-profile img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    .athlete-profile h2 {
+        font-size: 1.2em;
+    }
+
+    .athlete-profile p {
+        font-size: 0.8em;
+    }
+}

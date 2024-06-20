@@ -1,0 +1,98 @@
+/* user-login-area.css */
+
+.user-login-area {
+  align-items: center;
+  background: linear-gradient(180.21deg, #fafafa 7.32%, #f0f2f5 101.36%);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.user-login-area img {
+  height: auto; /* Используем авто для высоты, чтобы сохранить пропорции изображения */
+  max-width: 100%; /* Максимальная ширина изображения равна ширине контейнера */
+  margin: 50px 0;
+  width: 281px;
+}
+
+.user-login-area form {
+  align-items: center;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  padding: 20px;
+  max-width: 700px; /* Максимальная ширина формы для лучшей адаптации */
+  width: 100%; /* Форма занимает всю доступную ширину */
+}
+
+.user-login-area form h1 {
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 24px; /* Увеличиваем размер заголовка для лучшей видимости на больших экранах */
+  font-weight: 700;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.user-login-area form input {
+  background: white;
+  border: 1px solid #e1e5eb;
+  border-radius: 8px;
+  height: 45px;
+  margin: 10px 0;
+  padding: 12px 16px;
+  width: 100%; /* Используем 100% ширины для адаптивности */
+  max-width: 519px; /* Максимальная ширина ввода для удобства на больших экранах */
+}
+
+.user-login-area form input::placeholder {
+  color: #6b7588;
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 14px;
+  line-height: 150%;
+  text-align: center;
+}
+
+.user-login-area form button {
+  background: #003be5;
+  border: 1px solid #003be5;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 16px;
+  height: 40px;
+  margin: 20px 0;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%; /* Используем 100% ширины для кнопки */
+  max-width: 519px; /* Максимальная ширина кнопки для удобства на больших экранах */
+}
+
+.user-login-area form button:hover {
+  background: #002799;
+}
+
+.user-login-area form p {
+  color: #b01726;
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  text-align: center;
+}
+
+/* Медиазапросы для адаптивности */
+
+@media (max-width: 768px) {
+  .user-login-area form {
+    max-width: 100%; /* Форма занимает всю доступную ширину на маленьких экранах */
+    padding: 10px; /* Уменьшаем отступы вокруг формы на мобильных устройствах */
+  }
+
+  .user-login-area form input,
+  .user-login-area form button {
+    max-width: 100%; /* Элементы формы занимают всю доступную ширину на маленьких экранах */
+  }
+}

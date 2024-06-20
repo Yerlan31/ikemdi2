@@ -1,0 +1,58 @@
+.match-card {
+    display: flex;
+    justify-content: space-around;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.match-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.match-card img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.match-card .athlete-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.match-card .athlete-details h3 {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.match-card .score-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    transform: none;
+    box-shadow: none;
+    border: none;
+}
+
+.match-card .score {
+    font-size: 1em;
+    margin: 0 15px;
+}
+
+.match-card .match-status {
+    align-self: center; /* Center horizontally */
+    margin-top: 15px; /* Adjust the top margin for spacing */
+}
+

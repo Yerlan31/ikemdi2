@@ -1,0 +1,86 @@
+/* styles.css */
+.athlete-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    cursor: pointer;
+    flex: 1 1 calc(25% - 20px); /* Allows the card to take up 25% of the container width minus margins */
+    max-width: calc(25% - 20px); /* Ensures the card doesn't exceed 25% of the container width minus margins */
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+}
+
+.athlete-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.athlete-card img {
+    border-radius: 10px; /* Rounded corners for square image */
+    width: 100%; /* Image spans entire width of the card */
+    height: 100%; /* Image will maintain aspect ratio due to its container */
+    margin-bottom: 15px;
+}
+
+.athlete-card h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.athlete-card p {
+    font-size: 0.9em;
+    color: #666;
+    margin: 5px 0;
+}
+
+/* Container for the cards */
+.athlete-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px;
+    justify-content: flex-start;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .athlete-card {
+        flex: 1 1 calc(33.33% - 20px); /* 3 cards per row */
+        max-width: calc(33.33% - 20px);
+    }
+}
+
+@media (max-width: 992px) {
+    .athlete-card {
+        flex: 1 1 calc(50% - 20px); /* 2 cards per row */
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .athlete-card {
+        flex: 1 1 calc(100% - 20px); /* 1 card per row */
+        max-width: calc(100% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .athlete-card {
+        padding: 10px;
+    }
+
+    .athlete-card h3 {
+        font-size: 1em;
+    }
+
+    .athlete-card p {
+        font-size: 0.8em;
+    }
+}

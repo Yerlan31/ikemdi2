@@ -1,0 +1,20 @@
+.match-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .match-card {
+        width: calc(100% - 20px); /* 1 card per row */
+        max-width: calc(100% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .match-card {
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+}

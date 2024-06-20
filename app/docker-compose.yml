@@ -1,0 +1,55 @@
+version: '3.9'
+services:
+  frontend:
+    build: ./frontend
+    container_name: app_frontend
+    ports:
+      - 3000:3000
+    platform: linux/x86_64
+    depends_on:
+      backend:
+        condition: service_healthy
+    # Os `healthcheck` devem garantir que a aplicação
+    # está operacional, antes de liberar o container
+    healthcheck:
+      test: ["CMD", "lsof", "-t", "-i:3000"]  # Caso utilize outra porta interna para o front, altere ela aqui também
+      timeout: 10s
+      retries: 5
+  backend:
+    build: ./backend
+    container_name: app_backend
+    ports:
+      - 3001:3001
+    platform: linux/x86_64
+    restart: 'always'
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - PORT=3001
+      # Os dados abaixo se referem ao container `db`
+      # Dica: Relembre aqui da comunicação interna entre containers
+      - DB_USER=root
+      - DB_PASS=123456
+      - DB_HOST=db
+      - DB_NAME=judo
+      - DB_PORT=5432
+    healthcheck:
+      test: ["CMD", "lsof", "-t", "-i:3001"] # Caso utilize outra porta interna para o back, altere ela aqui também
+      timeout: 10s
+      retries: 5
+  db:
+    image: postgres:13
+    platform: linux/x86_64
+    container_name: db
+    ports:
+      - 3002:5432
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=judo
+    restart: 'always'
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U root -d TRYBE_FUTEBOL_CLUBE"]
+      timeout: 10s
+      retries: 5

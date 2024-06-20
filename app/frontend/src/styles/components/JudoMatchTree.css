@@ -1,0 +1,109 @@
+/* styles/TournamentBracket.css */
+
+.tournament-bracket {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.match {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.match-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.athlete {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.status.in-progress {
+    background-color: #ffeb3b;
+    color: #000;
+}
+
+.status.completed {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.next-match {
+    margin-top: 20px;
+    margin-left: 20px;
+    border-left: 2px solid #ddd;
+    padding-left: 20px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .tournament-bracket {
+        padding: 15px;
+    }
+
+    .match {
+        padding: 8px;
+        margin: 8px 0;
+    }
+
+    .athlete {
+        font-size: 0.9em;
+    }
+
+    .status {
+        padding: 4px 8px;
+        margin-top: 8px;
+    }
+
+    .next-match {
+        margin-top: 15px;
+        margin-left: 15px;
+        padding-left: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tournament-bracket {
+        padding: 10px;
+    }
+
+    .match {
+        padding: 6px;
+        margin: 6px 0;
+    }
+
+    .athlete {
+        font-size: 0.8em;
+    }
+
+    .status {
+        padding: 3px 6px;
+        margin-top: 6px;
+    }
+
+    .next-match {
+        margin-top: 10px;
+        margin-left: 10px;
+        padding-left: 10px;
+    }
+}
