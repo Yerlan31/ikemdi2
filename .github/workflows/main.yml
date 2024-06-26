@@ -9,5 +9,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Run docker-compose
-        run: docker-compose -f ./app/docker-compose.yml up -d 
+        run: docker-compose -f ./app/docker-compose.yml up -d --no-deps --build frontend
   
