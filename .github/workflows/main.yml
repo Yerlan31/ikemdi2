@@ -8,13 +8,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Use Node.js
-        uses: actions/setup-node@v4
+      - name: Run docker-compose
+        uses: hoverkraft-tech/compose-action@v2.0.1
         with:
-          node-version: '21.x'
-      - name: Installing dependencies 
-        run: npm ci # clean install
-      - name: Building the app
-        env:
-          CI: ""
-        run: echo ${{ secrets.USERPWD }} | sudo -S systemctl restart ikemdi.service 
+          compose-file: "./app/docker-compose.yml"
+      # - name: Building the app
+      #   env:
+      #     CI: ""
+      #   run: echo ${{ secrets.USERPWD }} | sudo -S systemctl restart ikemdi.service 
