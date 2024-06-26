@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: `https://ikemdi.com:${process.env.REACT_APP_API_PORT || '3001'}`,
+  baseURL: `https://ikemdi.com:${process.env.REACT_APP_API_PORT || '3001'}/backend`,
 });
 
 export const setToken = (token) => {
