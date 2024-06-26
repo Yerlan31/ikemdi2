@@ -49,7 +49,3 @@ services:
       - POSTGRES_PASSWORD=123456
       - POSTGRES_DB=judo
     restart: 'always'
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U root -d TRYBE_FUTEBOL_CLUBE"]
-      timeout: 10s
-      retries: 5
