@@ -50,6 +50,6 @@ services:
       - POSTGRES_DB=judo
     restart: 'always'
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U root -W 123456 -d TRYBE_FUTEBOL_CLUBE"]
+      test: ["CMD-SHELL", "pg_isready -U root -d TRYBE_FUTEBOL_CLUBE"]
       timeout: 10s
       retries: 5
