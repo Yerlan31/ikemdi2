@@ -8,14 +8,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Whoami
-        run: whoami
       - name: Run docker-compose
-        uses: hoverkraft-tech/compose-action@v2.0.1
-        with:
-          compose-file: "./app/docker-compose.yml"
-      # - name: Building the app
-      #   env:
-      #     CI: ""
-      #   run: echo ${{ secrets.USERPWD }} | sudo -S systemctl restart ikemdi.service 
-      
+        run: docker-compose up -f ./app/docker-compose.yml -d 
+    
