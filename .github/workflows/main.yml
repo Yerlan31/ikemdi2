@@ -8,5 +8,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Stop and rm last front and back
+        run: docker rm -f app_frontend app_backend
+      - name: RMI
+        run: docker rmi app_frontend app_backend
       - name: Run docker-compose
         run: docker-compose -f ./app/docker-compose.yml up -d 
