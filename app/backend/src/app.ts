@@ -20,10 +20,18 @@ class App {
             next();
         };
 
+        const corsOptions = {
+            origin: '*', // Разрешить все источники
+            methods: 'GET,POST,DELETE,OPTIONS,PUT,PATCH',
+            allowedHeaders: '*',
+            credentials: true
+        };
+
+        this.app.use(cors(corsOptions));
+
         this.app.use(express.json({limit: '50mb'}));
         this.app.use(express.urlencoded({limit: '50mb'}));
         this.app.use(accessControl);
-        this.app.use(cors());
         this.app.use(express.json());
         this.app.use(router);
     }
