@@ -1,5 +1,5 @@
 import * as express from 'express';
-// import * as cors from 'cors';
+import * as cors from 'cors';
 import router from './routes';
 
 class App {
@@ -20,7 +20,7 @@ class App {
 
     this.app.use(express.json({limit: '50mb'}));
     this.app.use(express.urlencoded({limit: '50mb'}));
-    // this.app.use(cors());
+    this.app.use(cors());
     this.app.use(accessControl);
     this.app.use(express.json());
     this.app.use(router);
