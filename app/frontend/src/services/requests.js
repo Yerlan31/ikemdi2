@@ -6,6 +6,7 @@ const api = axios.create({
 
 export const setToken = (token) => {
   api.defaults.headers.common.Authorization = token;
+  api.defaults.withCredentials = false;
 };
 
 export const requestData = async (endpoint) => {

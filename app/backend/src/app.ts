@@ -15,7 +15,7 @@ class App {
             res.header('Access-Control-Allow-Origin', '*');
             res.header('Access-Control-Allow-Methods', 'GET,POST,DELETE,OPTIONS,PUT,PATCH');
             res.header('Access-Control-Allow-Headers', '*');
-            res.header("Access-Control-Allow-Credentials", "true");
+            res.header("Access-Control-Allow-Credentials", "false");
 
             next();
         };
@@ -24,7 +24,7 @@ class App {
             origin: '*', // Разрешить все источники
             methods: 'GET,POST,DELETE,OPTIONS,PUT,PATCH',
             allowedHeaders: '*',
-            credentials: true
+            credentials: false
         };
 
         this.app.use(cors(corsOptions));
